@@ -28,7 +28,7 @@ export const Card = (props: CardProps) => {
                         <ShareIcon />
                     </a>
                     {!props.isSharedView && 
-                    <div onClick={props.handleDelete}>
+                    <div onClick={props.handleDelete} className="cursor-pointer">
                         <DeleteIcon />
                     </div>
                     }

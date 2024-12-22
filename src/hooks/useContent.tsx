@@ -4,7 +4,7 @@ import { BACKEND_URL } from "../config";
 import { ContentType } from "../enum";
 
 export interface IContent {
-    _id: string;
+    id: string;
     title: string;
     description: string;
     link: string;
