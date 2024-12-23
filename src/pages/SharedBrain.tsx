@@ -23,7 +23,7 @@ export const SharedBrain = () => {
 
   return (
     <div className='flex gap-2 flex-wrap p-4 justify-center mt-4'>
-      {content?.map(c => <Card isSharedView={true} link={c.link} title={c.title} key={c._id} type={c.type} id={c._id} />)}
+      {content?.map(c => <Card isSharedView={true} link={c.link} title={c.title} key={c.id} type={c.type} id={c.id} />)}
     </div>
   )
 }

@@ -7,13 +7,11 @@ import { Card } from '../components/Card'
 import { CreateContentModal } from '../components/CreateContentModal'
 import axios from 'axios'
 import { BACKEND_URL } from '../config'
-import { ContentType } from '../enum'
 import { IContent } from '../hooks/useContent'
 
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false)
   const [content, setContent] = useState<IContent[]>([])
-  const [filteredContent, setFilteredContent] = useState<IContent[]>([])
   const [contentModalActionType, setContentModalActionType] = useState<'Add' | 'Edit'>("Add")
   const [editableContent, setEditableContent]  = useState<IContent | null>(null)
 
@@ -32,11 +30,6 @@ const Dashboard = () => {
     fetchContent()
   }, [])
 
-  useEffect(() => {
-    if (content.length > 0) {
-      setFilteredContent(content)
-    }
-  }, [content])
 
   const handleShareContent = async () => {
     try {
@@ -56,14 +49,7 @@ const Dashboard = () => {
       alert("Something went wrong")
     }
   }
-
-  const filterContent = (type: ContentType) => {
-    if (type === ContentType.All) {
-      setFilteredContent(content)
-    } else
-      setFilteredContent(content.filter(c => c.type === type))
-  }
-
+ 
   const handleAddContent = () => {
     setShowModal(true)
     setContentModalActionType('Add')
@@ -77,7 +63,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div><Sidebar handleFilter={filterContent} />
+    <div><Sidebar handleFilter={() => console.log('hihi')} />
       <div className='ml-60'>
         <div className='flex justify-end gap-2 p-2'>
           <Button variant='primary' startIcon={<PlusIcon />} text='Add Content' onClick={handleAddContent} />
