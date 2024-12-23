@@ -22,8 +22,8 @@ export const Sidebar = ({handleFilter}: SidebarProps) => {
           <div>Second Brain</div>
         </div>
         <div className="flex flex-col  mt-4">
-            <SidebarItem onClick={() => handleFilter(ContentType.Twitter)} icon={<TwitterIcon/>} text="Twitter"/>
-            <SidebarItem onClick={() => handleFilter(ContentType.Youtube)} icon={<YoutubeIcon/>} text="Youtube"/>
+            {/* <SidebarItem onClick={() => handleFilter(ContentType.Twitter)} icon={<TwitterIcon/>} text="Twitter"/>
+            <SidebarItem onClick={() => handleFilter(ContentType.Youtube)} icon={<YoutubeIcon/>} text="Youtube"/> */}
             <SidebarItem onClick={handleLogout} icon={<Logout/>} text="Logout"/>
         </div>
     </div>

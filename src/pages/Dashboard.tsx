@@ -84,7 +84,7 @@ const Dashboard = () => {
           <Button variant='secondary' startIcon={<ShareIcon />} text='Share' onClick={handleShareContent} />
         </div>
         <div className='flex gap-2 flex-wrap p-4 '>
-          {filteredContent?.map(c => <Card handleEdit={() => handleEdit(c)} handleDelete={() => handleDelete(c.id)} link={c.link} title={c.title} key={c.id} type={c.type} id={c.id} />)}
+          {content?.map(c => <Card handleEdit={() => handleEdit(c)} handleDelete={() => handleDelete(c.id)} link={c.link} title={c.title} key={c.id} type={c.type} id={c.id} />)}
         </div>
         <CreateContentModal initialContent={editableContent} actionType={contentModalActionType} open={showModal} onClose={() => setShowModal(false)} onSuccess={() => fetchContent()} />
       </div>
