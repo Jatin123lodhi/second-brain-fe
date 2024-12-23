@@ -9,7 +9,9 @@ interface SidebarProps{
   handleFilter: (type: ContentType) => void
 }
 export const Sidebar = ({handleFilter}: SidebarProps) => {
+  
   const navigate = useNavigate();
+  
   const handleLogout =  () => {
     localStorage.removeItem('token')
     navigate('/signin')
