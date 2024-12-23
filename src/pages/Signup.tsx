@@ -25,7 +25,6 @@ const Signup = () => {
       console.log(error)
       alert("Something went wrong while signing up")
     }
-  
   }
 
   return (
