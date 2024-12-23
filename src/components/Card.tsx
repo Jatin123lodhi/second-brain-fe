@@ -1,5 +1,6 @@
 import { ContentType } from "../enum"
 import { DeleteIcon } from "../icons/DeleteIcon"
+import { EditIcon } from "../icons/EditIcon"
 import { ShareIcon } from "../icons/ShareIcon"
 import { TwitterIcon } from "../icons/TwitterIcon"
 import { YoutubeIcon } from "../icons/YoutubeIcon"
@@ -10,11 +11,11 @@ interface CardProps {
     type: ContentType
     id: string
     handleDelete?: () => void
+    handleEdit? : () => void
     isSharedView?: boolean
 }
 
 export const Card = (props: CardProps) => {
-    
     
     return (
         <div className="bg-white rounded max-w-72  shadow-md p-4  ">
@@ -30,6 +31,11 @@ export const Card = (props: CardProps) => {
                     {!props.isSharedView && 
                     <div onClick={props.handleDelete} className="cursor-pointer">
                         <DeleteIcon />
+                    </div>
+                    }
+                    {!props.isSharedView && 
+                    <div onClick={props.handleEdit} className="cursor-pointer">
+                        <EditIcon />
                     </div>
                     }
                 </div>

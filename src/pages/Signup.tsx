@@ -23,7 +23,7 @@ const Signup = () => {
       }
     }catch(error){
       console.log(error)
-      alert("Something went wrong: Username already exists")
+      alert("Something went wrong while signing up")
     }
   
   }

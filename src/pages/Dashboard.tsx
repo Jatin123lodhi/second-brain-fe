@@ -14,7 +14,8 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState(false)
   const [content, setContent] = useState<IContent[]>([])
   const [filteredContent, setFilteredContent] = useState<IContent[]>([])
-
+  const [contentModalActionType, setContentModalActionType] = useState<'Add' | 'Edit'>("Add")
+  const [editableContent, setEditableContent]  = useState<IContent | null>(null)
 
   const fetchContent = async () => {
     try {
@@ -63,19 +64,29 @@ const Dashboard = () => {
       setFilteredContent(content.filter(c => c.type === type))
   }
 
+  const handleAddContent = () => {
+    setShowModal(true)
+    setContentModalActionType('Add')
+  }
+
+  const handleEdit = (c:IContent) => {
+    console.log('hihihi edit',c)
+    setShowModal(true)
+    setContentModalActionType('Edit')
+    setEditableContent(c)
+  }
+
   return (
     <div><Sidebar handleFilter={filterContent} />
       <div className='ml-60'>
         <div className='flex justify-end gap-2 p-2'>
-          <Button variant='primary' startIcon={<PlusIcon />} text='Add Content' onClick={() => setShowModal(true)} />
+          <Button variant='primary' startIcon={<PlusIcon />} text='Add Content' onClick={handleAddContent} />
           <Button variant='secondary' startIcon={<ShareIcon />} text='Share' onClick={handleShareContent} />
-
         </div>
         <div className='flex gap-2 flex-wrap p-4 '>
-          {filteredContent?.map(c => <Card handleDelete={() => handleDelete(c.id)} link={c.link} title={c.title} key={c.id} type={c.type} id={c.id} />)}
+          {filteredContent?.map(c => <Card handleEdit={() => handleEdit(c)} handleDelete={() => handleDelete(c.id)} link={c.link} title={c.title} key={c.id} type={c.type} id={c.id} />)}
         </div>
-        <CreateContentModal open={showModal} onClose={() => setShowModal(false)} onSuccess={() => fetchContent()} />
-
+        <CreateContentModal initialContent={editableContent} actionType={contentModalActionType} open={showModal} onClose={() => setShowModal(false)} onSuccess={() => fetchContent()} />
       </div>
     </div>
   )
