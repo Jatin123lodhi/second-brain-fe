@@ -29,6 +29,12 @@ jobs:
     - name: Verify Pushed Image
       run: docker pull jatin123lodhi/brainly-fe:latest  # Replace with your Docker Hub username and repository
     
+    - name: Test Connectivity
+      run: |
+        ping -c 4 15.206.164.208
+        nc -zv 15.206.164.208 22
+
+    
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
