@@ -34,7 +34,7 @@ const Dashboard = () => {
   const handleShareContent = async () => {
     try {
       const res = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, { share: true }, { headers: { "Authorization": localStorage.getItem("token") } })
-      alert(`Your shareable link : http://localhost:5173/brain/${res.data.hash}`)
+      alert(`Your shareable link : https://second-brain-35rwdyjzs-jatinmes-projects.vercel.app/brain/${res.data.hash}`)
     } catch (error) {
       alert("Something went wrong")
     }
