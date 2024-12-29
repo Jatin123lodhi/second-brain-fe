@@ -2,7 +2,7 @@ name: Test EC2 Connection
 
 on:
   push:
-    branches: [ master ]  # or master, depending on your default branch
+    branches: [ master ] 
 
 jobs:
   test:
