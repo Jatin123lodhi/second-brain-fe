@@ -1,1 +1,1 @@
-export const BACKEND_URL = "http://localhost:3001"
+export const BACKEND_URL = "http://ec2-43-204-221-106.ap-south-1.compute.amazonaws.com/"
